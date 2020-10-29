@@ -11,7 +11,7 @@ import WorkIcon from '@material-ui/icons/Work';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 
-export const mainListItems = (
+export const admin_mainListItems = (
     <div style={{color:"white"}}>
         <ListItem button onClick={()=>document.location = "/onlinePrintShop/adminDashboard/adminHome"} >
             <ListItemIcon style={{color:"white"}}>
@@ -37,7 +37,7 @@ export const mainListItems = (
             </ListItemIcon>
             <ListItemText primary="Reports" />
         </ListItem>
-        <ListItem button onClick={()=>document.location = "/onlinePrintShop/adminDashboard/employeeList"}>
+        <ListItem button onClick={()=>document.location = "/employees"}>
             <ListItemIcon style={{color:"white"}}>
                 <WorkIcon/>
             </ListItemIcon>
@@ -46,7 +46,7 @@ export const mainListItems = (
     </div>
 );
 
-export const secondaryListItems = (
+export const admin_secondaryListItems = (
     <div style={{color:"white"}}>
         <ListItem button>
             <ListItemIcon style={{color:"white"}}>
@@ -65,12 +65,6 @@ export const secondaryListItems = (
                 <AssignmentIcon />
             </ListItemIcon>
             <ListItemText primary="Year-end sale" />
-        </ListItem>
-        <ListItem button onClick={()=>document.location = "/signIn"}>
-            <ListItemIcon style={{color:"white"}}>
-                <ExitToAppIcon />
-            </ListItemIcon>
-            <ListItemText primary="Log Out" />
         </ListItem>
     </div>
 );

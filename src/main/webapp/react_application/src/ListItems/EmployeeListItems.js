@@ -11,7 +11,7 @@ import WorkIcon from '@material-ui/icons/Work';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 
-export const mainListItems = (
+export const employee_mainListItems = (
     <div style={{color:"white"}}>
         <ListItem button onClick={()=>document.location = "/onlinePrintShop/employeeDashboard/employeeHome"} >
             <ListItemIcon style={{color:"white"}}>
@@ -40,7 +40,7 @@ export const mainListItems = (
     </div>
 );
 
-export const secondaryListItems = (
+export const employee_secondaryListItems = (
     <div style={{color:"white"}}>
         <ListItem button onClick={()=>document.location = "/signIn"}>
             <ListItemIcon style={{color:"white"}}>

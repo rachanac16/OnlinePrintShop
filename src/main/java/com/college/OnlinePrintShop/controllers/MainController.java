@@ -31,6 +31,17 @@ public class MainController {
         }else return new Staff();
     }
 
+    @GetMapping("/modify/staffId={staffId}")
+    private Staff getStaffByStaffId(@PathVariable(name="staffId") int staffId){
+        Staff staff = staffRepository.findByStaffIdEquals(staffId);
+        return staff;
+    }
+    @GetMapping("/delete/staffId={staffId}")
+    private void deleteByStaffId(@PathVariable(name="staffId") int staffId){
+        staffRepository.deleteByStaffIdEquals(staffId);
+        logger.info("staff id : "+staffId+" deleted!");
+    }
+
     @PostMapping("/addStaff")
     private void addEmployee(@RequestBody Staff staff){
         logger.info(staff.toString());
