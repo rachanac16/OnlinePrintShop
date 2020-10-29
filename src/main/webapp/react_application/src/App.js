@@ -15,6 +15,7 @@ import SideDrawer from "./functions/SideDrawer";
 import AdminHome from "./functions/AdminHome";
 import EmployeeHome from "./functions/EmployeeHome";
 import CustomerHome from "./functions/CustomerHome";
+import Employees from "./functions/Employees";
 
 const useStyles = (theme) => ({
     root: {
@@ -35,6 +36,15 @@ class App extends React.Component{
             isSignedIn:false,
             open:true,
             status:"Admin"
+        }
+    }
+
+    componentDidMount() {
+        if(localStorage.getItem("signIn") !== "null"){
+            console.log("found entry");
+            this.setState({
+                isSignedIn:true,
+            });
         }
     }
 
@@ -72,8 +82,10 @@ class App extends React.Component{
 
     changeSignInStatus = () =>{
         this.setState({
-            isSignedIn: !this.state.isSignedIn,
+            isSignedIn:!this.state.isSignedIn,
         });
+        localStorage.setItem("signIn", null);
+        document.location = "/";
         console.log("clicked");
         console.log(this.state.isSignedIn);
     }
@@ -81,7 +93,7 @@ class App extends React.Component{
     render() {
         const { classes } = this.props;
         return (
-            <Router>
+
                 <MuiThemeProvider theme={theme}>
                     <CssBaseline />
                     <GlobalStyles/>
@@ -93,21 +105,27 @@ class App extends React.Component{
                                     <SideDrawer open={this.state.open} handleDrawerOpen={this.handleDrawerOpen} handleDrawerClose={this.handleDrawerClose} status={this.state.status} toggleSignIn={() => this.changeSignInStatus()}/>
                                 </div>
                                 :
-                            <div></div>
+                            <div>
+
+                            </div>
                         }
                         <div className={classes.content}>
+                            <Router>
                             <Switch>
                                 <Route exact path="/">
                                     <div>
                                         {this.checkSignedIn()}
                                     </div>
                                 </Route>
-
+                                <Route path="/employees" >
+                                    <Employees/>
+                                </Route>
                             </Switch>
+                        </Router>
                         </div>
                     </div>
                 </MuiThemeProvider>
-            </Router>
+
 
       );
     }
